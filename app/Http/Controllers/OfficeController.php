@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OfficeRequest;
 use App\Models\Office;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        //
+        $offices = Office::all();
+        return view('parameters.offices.index',compact('offices'));
     }
 
     /**
@@ -24,7 +26,8 @@ class OfficeController extends Controller
      */
     public function create()
     {
-        //
+        $office = new Office();
+        return view('parameters.offices.create',compact('office'));
     }
 
     /**
@@ -33,20 +36,13 @@ class OfficeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OfficeRequest $request)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Office  $office
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Office $office)
-    {
-        //
+        $office = Office::create([
+            'description' => $request->description
+        ]);
+        return redirect()->route('offices.index')->with("message", ['success','Oficina creado correctamente']);
     }
 
     /**
@@ -57,7 +53,8 @@ class OfficeController extends Controller
      */
     public function edit(Office $office)
     {
-        //
+        return view('parameters.offices.edit',compact('office'));
+
     }
 
     /**
@@ -67,9 +64,13 @@ class OfficeController extends Controller
      * @param  \App\Models\Office  $office
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Office $office)
+    public function update(OfficeRequest $request, Office $office)
     {
-        //
+        $office->update([
+            'description' => $request->description
+        ]);
+
+        return redirect()->route('offices.index')->with("message", ['success','Oficina actualizado correctamente']);
     }
 
     /**
@@ -80,6 +81,8 @@ class OfficeController extends Controller
      */
     public function destroy(Office $office)
     {
-        //
+        $office->delete();
+
+        return redirect()->route('offices.index')->with("message", ['success','Oficina eliminado correctamente']);
     }
 }
