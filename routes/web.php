@@ -20,5 +20,9 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
     return view('dash.index');
 })->name('dash');
-
+/* Directory */
 Route::middleware(['auth:sanctum'])->resource('/directory', \App\Http\Controllers\DirectoryController::class);
+/* Parametros */
+Route::middleware(['auth:sanctum'])->resource('/state', \App\Http\Controllers\StateController::class);
+Route::middleware(['auth:sanctum'])->resource('/title', \App\Http\Controllers\TitleController::class);
+Route::middleware(['auth:sanctum'])->resource('/office', \App\Http\Controllers\OfficeController::class);
