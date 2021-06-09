@@ -23,6 +23,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
 /* Directory */
 Route::middleware(['auth:sanctum'])->resource('/directory', \App\Http\Controllers\DirectoryController::class);
 /* Parametros */
-Route::middleware(['auth:sanctum'])->resource('/state', \App\Http\Controllers\StateController::class);
-Route::middleware(['auth:sanctum'])->resource('/title', \App\Http\Controllers\TitleController::class);
-Route::middleware(['auth:sanctum'])->resource('/office', \App\Http\Controllers\OfficeController::class);
+Route::middleware(['auth:sanctum'])->resource('/states', \App\Http\Controllers\StateController::class)
+    ->except('show');
+Route::middleware(['auth:sanctum'])->resource('/titles', \App\Http\Controllers\TitleController::class)
+    ->except('show');
+Route::middleware(['auth:sanctum'])->resource('/offices', \App\Http\Controllers\OfficeController::class)
+    ->except('show');

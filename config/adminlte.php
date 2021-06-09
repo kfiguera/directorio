@@ -248,15 +248,15 @@ return [
             'submenu' => [
                 [
                     'text' => 'Estados',
-                    'url' => 'state',
+                    'url' => 'states',
                 ],
                 [
                     'text' => 'Cargos',
-                    'url' => 'title',
+                    'url' => 'titles',
                 ],
                 [
                     'text' => 'Oficinas',
-                    'url' => 'office',
+                    'url' => 'offices',
                 ],
             ]
         ],
