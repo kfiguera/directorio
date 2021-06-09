@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TitleRequest;
 use App\Models\Title;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class TitleController extends Controller
      */
     public function index()
     {
-        //
+        $titles = Title::all();
+        return view('parameters.titles.index',compact('titles'));
     }
 
     /**
@@ -24,7 +26,8 @@ class TitleController extends Controller
      */
     public function create()
     {
-        //
+        $title = new Title();
+        return view('parameters.titles.create',compact('title'));
     }
 
     /**
@@ -33,20 +36,13 @@ class TitleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TitleRequest $request)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Title  $title
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Title $title)
-    {
-        //
+        $title = Title::create([
+            'description' => $request->description
+        ]);
+        return redirect()->route('titles.index')->with("message", ['success','Cargo creado correctamente']);
     }
 
     /**
@@ -57,7 +53,8 @@ class TitleController extends Controller
      */
     public function edit(Title $title)
     {
-        //
+        return view('parameters.titles.edit',compact('title'));
+
     }
 
     /**
@@ -67,9 +64,13 @@ class TitleController extends Controller
      * @param  \App\Models\Title  $title
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Title $title)
+    public function update(TitleRequest $request, Title $title)
     {
-        //
+        $title->update([
+            'description' => $request->description
+        ]);
+
+        return redirect()->route('titles.index')->with("message", ['success','Cargo actualizado correctamente']);
     }
 
     /**
@@ -80,6 +81,8 @@ class TitleController extends Controller
      */
     public function destroy(Title $title)
     {
-        //
+        $title->delete();
+
+        return redirect()->route('titles.index')->with("message", ['success','Cargo eliminado correctamente']);
     }
 }
