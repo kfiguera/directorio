@@ -23,8 +23,25 @@ class StateRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'description' => 'required'
-        ];
+        switch ($this->method()) {
+            case 'POST':
+            {
+                return [
+                    'description' => ['required','unique:states,description']
+                ];
+            }
+            case 'PUT':
+            {
+                return [
+                    'description' => ['required','unique:states,description,'.$this->route('state')->id]
+                ];
+            }
+            default:
+            {
+                return [];
+            }
+
+        }
+
     }
 }

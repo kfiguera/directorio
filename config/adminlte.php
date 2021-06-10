@@ -239,7 +239,7 @@ return [
         // Sidebar items:
         [
             'text' => 'Directory',
-            'url' => 'directory',
+            'url' => 'directories',
             'icon' => 'fas fa-fw fa-book',
         ],
         [

@@ -21,7 +21,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
     return view('dash.index');
 })->name('dash');
 /* Directory */
-Route::middleware(['auth:sanctum'])->resource('/directory', \App\Http\Controllers\DirectoryController::class);
+Route::middleware(['auth:sanctum'])->resource('/directories', \App\Http\Controllers\DirectoryController::class);
 /* Parametros */
 Route::middleware(['auth:sanctum'])->resource('/states', \App\Http\Controllers\StateController::class)
     ->except('show');

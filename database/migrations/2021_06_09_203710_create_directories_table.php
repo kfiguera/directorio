@@ -18,8 +18,8 @@ class CreateDirectoriesTable extends Migration
             $table->string('name');
             $table->string('id_number');
             $table->string('email');
-            $table->string('phone');
-            $table->string('extension');
+            $table->string('phone')->nullable();
+            $table->string('extension')->nullable();
             $table->unsignedBigInteger('state_id');
             $table->unsignedBigInteger('title_id');
             $table->unsignedBigInteger('office_id');
