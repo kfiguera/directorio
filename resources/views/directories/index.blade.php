@@ -43,9 +43,10 @@
                 <tr>
                     <th class="col-auto">Acciones</th>
                     <th>#</th>
+                    <th>Nombre</th>
                     <th>Ext</th>
                     <th>Teléfono</th>
-                    <th>Nombre</th>
+                    <th>Email</th>
                     <th>Cargo</th>
                     <th>Oficina</th>
                     <th>Estado</th>
@@ -80,9 +81,10 @@
 
 
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $directory->name }}</td>
                         <td>{{ $directory->extension }}</td>
                         <td>{{ $directory->phone }}</td>
-                        <td>{{ $directory->name }}</td>
+                        <td>{{ $directory->email }}</td>
                         <td>{{ $directory->title->description }}</td>
                         <td>{{ $directory->office->description }}</td>
                         <td>{{ $directory->state->description }}</td>

@@ -1,5 +1,7 @@
 <?php
 
+
+
 return [
 
     /*
@@ -238,14 +240,27 @@ return [
 
         // Sidebar items:
         [
-            'text' => 'Directory',
-            'url' => 'directories',
+            'text' => 'Directorio',
+            'url' => '/',
             'icon' => 'fas fa-fw fa-book',
         ],
+
+        [
+            'text' => 'Iniciar Sesión',
+            'url' => 'login',
+            'icon' => 'fas fa-fw fa-user',
+            'can' =>  ['can-login'],
+        ],
+
         [
             'text' => 'Parametros',
             'icon' => 'fas fa-fw fa-cog',
+            'can' => ['edit-param'],
             'submenu' => [
+                [
+                    'text' => 'Directorio',
+                    'url' => 'directories',
+                ],
                 [
                     'text' => 'Estados',
                     'url' => 'states',
@@ -277,7 +292,8 @@ return [
     */
 
     'filters' => [
-        JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+        //JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+        App\Filter\MenuFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\SearchFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,

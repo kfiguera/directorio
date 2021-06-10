@@ -13,13 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/',[\App\Http\Controllers\DashboardController::class,'index'])->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
-    return view('dash.index');
-})->name('dash');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dash',[\App\Http\Controllers\DashboardController::class,'index'])->name('dash');
 /* Directory */
 Route::middleware(['auth:sanctum'])->resource('/directories', \App\Http\Controllers\DirectoryController::class);
 /* Parametros */
