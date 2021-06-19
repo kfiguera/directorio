@@ -12,6 +12,7 @@ Los pasos de Instalación son los siguientes:
 - Copiar el archivo **.env.example**  a **.env**
 - Cambiar los parámetros de conexión  en el archivo **.env**
 - Ejecutar los siguiente comandos:
+    - php artisan key:generate
     - php artisan migrate --seed
     - php artisan serve
 - Ir al navegador [localhost](https://localhost:8000)
