@@ -35,10 +35,19 @@
                     <input type="text" name="description" class="form-control" placeholder="Descripción"
                            value="{{ old('description',$location->description) }}">
                 </div>
+                <div class="form-group">
+                    <label>¿Requiere Extension?</label>
+                    <select class="form-control" name="extension" id="extension">
+                        <option value="1" {{ (old('extension',$location->extension) == 1) ? 'selected' : '' }}>SI
+                        </option>
+                        <option value="0" {{ (old('extension',$location->extension) == 0) ? 'selected' : '' }}>NO
+                        </option>
+                    </select>
+                </div>
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-between align-items-center ">
-                    <a href="{{ route('titles.index') }}" class="btn btn-default" title="Volver">
+                    <a href="{{ route('locations.index') }}" class="btn btn-default" title="Volver">
                         <i class="fa fa-fw fa-chevron-left"> </i>
                         Volver
                     </a>

@@ -41,7 +41,8 @@ class LocationController extends Controller
     {
 
         $location = Location::create([
-            'description' => $request->description
+            'description' => $request->description,
+            'extension' => $request->extension
         ]);
         return redirect()->route('locations.index')->with("message", ['success','Ubicación creado correctamente']);
     }
@@ -68,7 +69,8 @@ class LocationController extends Controller
     public function update(LocationRequest $request, Location $location)
     {
         $location->update([
-            'description' => $request->description
+            'description' => $request->description,
+            'extension' => $request->extension
         ]);
 
         return redirect()->route('locations.index')->with("message", ['success','Ubicación actualizado correctamente']);

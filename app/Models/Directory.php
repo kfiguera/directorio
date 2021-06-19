@@ -10,7 +10,7 @@ class Directory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'id_number', 'email', 'phone', 'extension', 'title_id', 'office_id', 'state_id', 'user_id'];
+    protected $fillable = ['name', 'id_number', 'email', 'phone', 'extension', 'title_id', 'office_id', 'state_id', 'user_id', 'location_id'];
     //relaciones
     public function title()
     {

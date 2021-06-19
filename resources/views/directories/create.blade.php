@@ -62,7 +62,7 @@
 
                 <div class="form-group">
                     <label for="title_id">Cargo</label>
-                    <select name="title_id" id="title_id"  class="form-control">
+                    <select name="title_id" id="title_id" class="form-control">
 
                         <option value="">Seleccione</option>
                         @foreach($titles as $title)
@@ -92,6 +92,17 @@
                         @foreach($states as $state)
                             <option
                                 value="{{ $state->id }}" {{ old('title_id',$directory->state_id) == $state->id ? 'selected' : '' }}> {{ $state->description }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="location_id">Ubicación</label>
+                    <select name="location_id" id="location_id" class="form-control">
+
+                        <option value="">Seleccione</option>
+                        @foreach($locations as $location)
+                            <option
+                                value="{{ $location->id }}" {{ old('location_id',$directory->location_id) == $location->id ? 'selected' : '' }}> {{ $location->description }}</option>
                         @endforeach
                     </select>
                 </div>

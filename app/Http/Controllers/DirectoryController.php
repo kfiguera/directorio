@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DirectoryRequest;
 use App\Models\Directory;
+use App\Models\Location;
 use App\Models\Office;
 use App\Models\State;
 use App\Models\Title;
@@ -34,7 +35,8 @@ class DirectoryController extends Controller
         $offices = Office::all();
         $states = State::all();
         $titles = Title::all();
-        return view('directories.create',compact('directory','offices','states','titles'));
+        $locations = Location::all();
+        return view('directories.create',compact('directory','offices','states','titles','locations'));
     }
 
     /**
@@ -75,7 +77,8 @@ class DirectoryController extends Controller
         $offices = Office::all();
         $states = State::all();
         $titles = Title::all();
-        return view('directories.edit',compact('directory','offices','states','titles'));
+        $locations = Location::all();
+        return view('directories.edit',compact('directory','offices','states','titles','locations'));
     }
 
     /**

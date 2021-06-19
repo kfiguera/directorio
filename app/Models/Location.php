@@ -10,7 +10,7 @@ class Location extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['description'];
+    protected $fillable = ['description', 'extension'];
 
     public function setDescriptionAttribute($value)
     {

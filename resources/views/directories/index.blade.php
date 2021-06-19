@@ -14,9 +14,11 @@
             <div class="col">
                 <div class="alert alert-{{ session('message')[0] }}">
 
-                    <h4 class="alert-heading">{{ __('Mensaje Informativo') }}  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <h4 class="alert-heading">{{ __('Mensaje Informativo') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">×</span>
-                        </button></h4>
+                        </button>
+                    </h4>
                     <div class="alert-body">
                         <p>{{ session('message')[1] }}</p>
 
@@ -63,9 +65,11 @@
                                     <i class="fa fa-fw fa-cog"></i>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="{{ route('directories.edit',['directory'=>$directory]) }}">
+                                    <a class="dropdown-item"
+                                       href="{{ route('directories.edit',['directory'=>$directory]) }}">
                                         <i class="fas fa-pen-alt"></i> Editar
                                     </a>
+                                    {{--
                                     <div class="dropdown-divider"></div>
                                     <form action="{{route('directories.destroy',['directory'=> $directory])}}" method="POST">
                                         @csrf
@@ -74,7 +78,7 @@
                                             <i class="fas fa-trash"></i> Eliminar
                                         </button>
                                     </form>
-
+                                    --}}
                                 </div>
                             </div>
                         </td>
