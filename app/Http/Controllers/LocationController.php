@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LocationRequest;
 use App\Models\Location;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        $locations = Location::all();
+        return view('parameters.locations.index',compact('locations'));
     }
 
     /**
@@ -22,9 +24,11 @@ class LocationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-        //
+        $location = new Location();
+        return view('parameters.locations.create',compact('location'));
     }
 
     /**
@@ -33,20 +37,13 @@ class LocationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LocationRequest $request)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Location  $location
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Location $location)
-    {
-        //
+        $location = Location::create([
+            'description' => $request->description
+        ]);
+        return redirect()->route('locations.index')->with("message", ['success','Ubicación creado correctamente']);
     }
 
     /**
@@ -57,7 +54,8 @@ class LocationController extends Controller
      */
     public function edit(Location $location)
     {
-        //
+        return view('parameters.locations.edit',compact('location'));
+
     }
 
     /**
@@ -67,9 +65,13 @@ class LocationController extends Controller
      * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Location $location)
+    public function update(LocationRequest $request, Location $location)
     {
-        //
+        $location->update([
+            'description' => $request->description
+        ]);
+
+        return redirect()->route('locations.index')->with("message", ['success','Ubicación actualizado correctamente']);
     }
 
     /**
@@ -80,6 +82,8 @@ class LocationController extends Controller
      */
     public function destroy(Location $location)
     {
-        //
+        $location->delete();
+
+        return redirect()->route('locations.index')->with("message", ['success','Ubicación eliminado correctamente']);
     }
 }

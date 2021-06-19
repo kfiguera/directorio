@@ -25,3 +25,5 @@ Route::middleware(['auth:sanctum'])->resource('/titles', \App\Http\Controllers\T
     ->except('show');
 Route::middleware(['auth:sanctum'])->resource('/offices', \App\Http\Controllers\OfficeController::class)
     ->except('show');
+Route::middleware(['auth:sanctum'])->resource('/locations', \App\Http\Controllers\LocationController::class)
+    ->except('show');

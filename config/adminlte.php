@@ -273,6 +273,10 @@ return [
                     'text' => 'Oficinas',
                     'url' => 'offices',
                 ],
+                [
+                    'text' => 'Ubicaciones',
+                    'url' => 'locations',
+                ],
             ]
         ],
 
