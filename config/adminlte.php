@@ -47,7 +47,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Directorio</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -277,6 +277,10 @@ return [
                     'text' => 'Ubicaciones',
                     'url' => 'locations',
                 ],
+                [
+                    'text' => 'Usuarios',
+                    'url' => 'users',
+                ],
             ]
         ],
 
@@ -319,6 +323,21 @@ return [
     */
 
     'plugins' => [
+        'CustomCss' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '/css/custom.css',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '/css/app.css',
+                ],
+            ],
+        ],
         'Datatables' => [
             'active' => false,
             'files' => [

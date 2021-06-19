@@ -80,7 +80,7 @@
                         @foreach($offices as $office)
 
                             <option
-                                value="{{ $office->id }}" {{ old('title_id',$directory->office_id) == $office->id ? 'selected' : '' }}> {{ $office->description }}</option>
+                                value="{{ $office->id }}" {{ old('office_id',$directory->office_id) == $office->id ? 'selected' : '' }}> {{ $office->description }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -91,7 +91,7 @@
                         <option value="">Seleccione</option>
                         @foreach($states as $state)
                             <option
-                                value="{{ $state->id }}" {{ old('title_id',$directory->state_id) == $state->id ? 'selected' : '' }}> {{ $state->description }}</option>
+                                value="{{ $state->id }}" {{ old('state_id',$directory->state_id) == $state->id ? 'selected' : '' }}> {{ $state->description }}</option>
                         @endforeach
                     </select>
                 </div>
