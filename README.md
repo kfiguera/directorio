@@ -6,16 +6,16 @@
 Los pasos de Instalación son los siguientes:
 - Clonar el repositorio
     - git clone https://github.com/kfiguera/directorio.git
-- Ingresar e la carpeta directorio y ejecutar los siguientes comandos 
+- Ingresar en la carpeta directorio y ejecutar los siguientes comandos 
     - composer install
     - npm install && npm run dev
 - Copiar el archivo **.env.example**  a **.env**
-- Cambiar los parametros de coneccion  en el archivo **.env**
+- Cambiar los parámetros de conexión  en el archivo **.env**
 - Ejecutar los siguiente comandos:
     - php artisan migrate --seed
     - php artisan serve
 - Ir al navegador [localhost](https://localhost:8000)
-- Datos de Inicio de Seción
+- Datos de Inicio de Sesión
     - Usuario: admin@directory.com
     - Clave: 123456 
 
